@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="CSS/login.css">
+  </head>
+  <body class="index-body">
+    <div class="form-log-container">
+      <div>
+        <img class="image2" src="CSS/image2.png" alt="image not available" ></img>
+      </div>
+      <form action="/login" method="post">
+        <label class="form-label" for="email"></label>
+        <input class="form-input" type="email" id="email" name="email" placeholder="E-mail" required>
+
+        <label class="form-label" for="password"></label>
+        <input class="form-input" type="password" id="password" name="password" placeholder="Password" required>
+
+        <button type="submit"><a id="form-log-log">Sign In</a></button>
+
+        <a class="log-forgot" href="">Forgot Password?</a>
+        <p class="sign-up">Don't have an account?<a class="form-log-login" href="signup">Sign Up</a></p>
+
+      </form>
+    </div>
+  </body>
+</html>

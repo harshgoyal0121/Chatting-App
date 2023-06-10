@@ -1,0 +1,113 @@
+body{
+    background-color: black;
+}
+.main_box{
+    background-color: black;
+    /* width: 1490px; */
+    width: 100%;
+    height: 95%;
+}
+#cont_list{
+    border-top: 20px solid black;
+    border-left: 18px solid black;
+    border-bottom: 20px solid black;
+    background-color: black;
+    color: white;
+}
+#chat{
+    border-top: 20px solid black;
+    border-right: 18px solid black;
+    border-bottom: 20px solid black;
+    background-color: rgb(36, 33, 33);
+    color: white;
+}
+/* cont_list  */
+#cont_container{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.profile_img{
+    visibility: visible;
+    width: 10%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: relative;
+    display: block;
+}
+.add_friend_img{
+    width: 25px;
+}
+/* navigation bar  */
+.menu_img{
+    width: 40%;
+}
+.navbar{
+    background-color: rgb(36, 33, 33);
+
+}
+
+.v1{
+    border-left: 2px solid white;
+}
+/* chat */
+.display_home{
+    margin-top: 5%;
+}
+.display_h3 .diaplay_p{
+    font-family: "Montserrat";
+}
+.diaplay_p{
+    font-size: 0.8rem;
+    color: gray;
+}
+.img{
+    margin-top: 8%;
+    width: 35%;
+    height: 200px;
+}
+
+/* css for scroll bar*/
+#scroll-container {
+    height: 84.25%; /* Adjust the height as needed */
+    overflow: auto; /* Enable scrollbars */
+}
+
+#scroll-content {
+    height: 100%; /* Use 100% height of the container */
+    /* Add any other styling for the content */
+}
+
+::-webkit-scrollbar {
+    width: 4px; /* Adjust the width as needed */
+}
+
+::-webkit-scrollbar-track {
+    background-color: black; /* Set the background color of the track */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: wheat; /* Set the color of the scroll thumb */
+}
+
+/* css for search bar for searching contacts*/
+.search-container {
+    display: flex;
+    background-color: black;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.search-container input[type=text] {
+    padding: 3px;
+    width: 350px;
+    border: 1px solid #ccc;
+    border-radius: 10px 10px;
+    outline: none;
+}
+
+.search-container input[type=text]{
+    background-image: url("/backened//public/CSS/magnifying-glass-solid.svg");
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    background-size: 20px;
+}

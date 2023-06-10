@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sign Up</title>
+    <script src="/backened/Templates/"></script>
+    <link rel="stylesheet" type="text/css" href="CSS/signup.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="sign_up_h1">Sign Up</h1>
+      <div class = "cam_profile" id="cam_profile_id">
+        <div>
+          <video id="video" autoplay></video>
+          <button id="click-photo">Click Photo</button>
+          <canvas id="canvas"></canvas>
+        </div>
+
+      </div>
+      <div class="user_info" id="user_info_id">
+        <form action"/signup", id="form-data" method="post">
+          <input type="hidden" id="imageDataField" name="imageDataField" value="imageDataUrl">
+          <input  type="image" id="CamRoll" style="text-align: center" onclick="OpenCamFunction()" src="/CSS/user-solid.png" class="rounded-circle user_image" alt="Not Available">
+          <label for="name"></label>
+          <input type="text" id="name" name="name" placeholder="Name" required>
+          <label for="email"></label>
+          <input type="email" id="email" name="email" placeholder="E-mail" required>
+          <label for="password"></label>
+          <input type="password" id="password" name="password" placeholder="Password" required>
+          <label for="confirm_password"></label>
+          <input type="password" id="confirm_password" name="ConfirmPassword" placeholder="Confirm password" required>
+          <button type="submit">Sign Up</button>
+        </form>
+      </div>
+    </div>
+    <script>
+      function OpenCamFunction(){
+        document.getElementById('sign_up_h1').style.display="none";
+        document.getElementById('cam_profile_id').style.display="block";
+        document.getElementById('user_info_id').style.display="none";
+      };
+      function take_snapshot(){
+        document.getElementById('sign_up_h1').style.display="block";
+        document.getElementById('cam_profile_id').style.display="none";
+        document.getElementById('user_info_id').style.display="block";
+      }
+
+      const cameraButton = document.querySelector('#CamRoll');
+      const video = document.querySelector('#video');
+      const clickButton = document.querySelector('#click-photo');
+      const canvas = document.querySelector('#canvas');
+
+      cameraButton.addEventListener('click', async function() {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+        video.srcObject = stream;
+      });
+      clickButton.addEventListener('click', function() {
+        document.querySelector('#cam_profile_id').style.display="none";
+        document.querySelector('#user_info_id').style.display="block";
+        document.querySelector('#sign_up_h1').style.display="block";
+
+        canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+        const imageDataUrl = canvas.toDataURL('image/jpeg');
+        document.querySelector('.user_image').src=imageDataUrl;
+        // Do something with the image data URL, such as saving it to a file or displaying it in an image element.8
+
+        const urlParams = new URLSearchParams(window.location.search);
+        urlParams.set("data",imageDataUrl);
+        var newRelativePathQuery = window.location.pathname + '?' + urlParams.toString();
+        history.pushState(null, '', newRelativePathQuery);
+
+
+        const imageDataField = document.getElementById('imageDataField').value=imageDataUrl;
+        form-data.submit();
+      });
+    </script>
+  </body>
+</html>
